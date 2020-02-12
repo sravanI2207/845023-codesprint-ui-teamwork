@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+           
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+           
+           
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <title> Gift card order form</title>
+            <link rel="stylesheet" href="sidebar.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+ .sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: gray;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  }
+  .sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  }
+  .sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+  }
+
+  .sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+  }
+  div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+  }
+  @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  }
+ .card-align{
+  width : 800px;
+  }
+</style>
+
+
+<body>
+ <nav class="navbar navbar-expand-md bg-lighter navbar-dark">
+   <a class="navbar-brand" href="#">
+    <img class="rounded-circle" alt="100x100" src="https://p7.hiclipart.com/preview/573/222/376/computer-icons-gift-ribbon-icons-birthday-for-windows.jpg" style="width:20%">
+  </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   
+</nav>
+
+
+<nav  class="navbar navbar-expand-lg navbar-light " style="background-color:gold;font-weight: bold;">  
+ <a class="navbar-brand" href="#">
+  </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+<li class="nav-item">
+        <a class="nav-link active" href="home.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="giftcardplaceorder.html">Place Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="viewcard.html">View Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="contactcard.html">Contact Us</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<div class="sidebar" style="background-color:gold;font-weight: bold;">
+       <a  href="home.html">Home</a>
+       <a href="giftcardplaceorder.html">Place Order</a>
+       <a href="viewcard.html">View Order</a>
+       <a href="contactcard.html">Contact Us</a>
+    </div>
+<div class="container ml-auto">
+ 
+<div class="row">
+<div class="col"></div>
+<div class="col-lg-9 col-md-9 col-sm-10">
+			<h2 class="text-align-center">View Gift Cards</h2>
+			
+				<div class="table-responsive mt-5">
+					<table id="tbldisplay" class="table ">
+						
+					</table>
+				</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var i=0;
+var allPro = JSON.parse(sessionStorage.getItem('storeObject'));
+var size = allPro.length;
+
+document.getElementById('tbldisplay').innerHTML = "<thead><tr> <th>S.no</th> <th>Buyers Name </th> <th>Shipping Address </th> <th>City </th> <th> Amount</th> <th>Phone</th> </tr></thead>";
+document.getElementById('tbldisplay').innerHTML += "<tbody>";
+for(i=0;i<size;i++){
+var j = i+1;
+document.getElementById('tbldisplay').innerHTML += "<tr><td>" + j +" </td><td>" +allPro[i].rfname + "</td><td>" +allPro[i].address + "</td><td>" +allPro[i].city+ "</td><td>" +allPro[i].inr + "</td><td>" + allPro[i].phone+ "</td></tr>";
+}
+document.getElementById('tbldisplay').innerHTML += "</tbody>";
+
+</script>
+
+
+</body>
+</html>			
